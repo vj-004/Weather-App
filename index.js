@@ -81,7 +81,6 @@ async function fetchUserWeatherInfo(coordinates) {
     }
     catch(err) {
         loadingScreen.classList.remove("active");
-        //HW
 
     }
 
@@ -118,9 +117,6 @@ function getLocation() {
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     }
-    else {
-        //HW - show an alert for no gelolocation support available
-    }
 }
 
 function showPosition(position) {
@@ -155,7 +151,6 @@ async function fetchSearchWeatherInfo(city) {
     userInfoContainer.classList.remove("active");
     grantAccessContainer.classList.remove("active");
 
-    try {
         const response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
           );
@@ -163,8 +158,4 @@ async function fetchSearchWeatherInfo(city) {
         loadingScreen.classList.remove("active");
         userInfoContainer.classList.add("active");
         renderWeatherInfo(data);
-    }
-    catch(err) {
-        //hW
-    }
 }
